@@ -3,3 +3,16 @@
 цифр и вывести на экран. Например, если введено число 3486,
  то надо вывести число 6843.
 """
+# Рекурсия
+number = int(input("Введите число: "))
+
+
+def recursion(num):
+    a = num % 10
+    if num // 10 == 0:
+        return str(a)
+    else:
+        return str(a) + recursion(num // 10)
+
+
+print(f"Числу {number} обратное по порядку элементов число: {recursion(number)}")

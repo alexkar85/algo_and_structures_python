@@ -9,3 +9,67 @@
 Также сообщать пользователю о невозможности деления на ноль,
 если он ввел 0 в качестве делителя.
 """
+
+# 1. Цикл
+def operation(n, a, b):
+    if n == "+":
+        result = a + b
+    elif n == "-":
+        result = a - b
+    elif n == "*":
+        result = a * b
+    elif n == "/":
+        result = a / b
+    return result
+
+
+while True:
+    n = input("Введите знак операции ('0', '+', '-', '*', '/'): ")
+    if n not in ['0', '+', '-', '*', '/']:
+        print("Неверный знак операции")
+        continue
+    elif n == '0':
+        print("Программа завершена")
+        break
+    else:
+        a = int(input("Введите первое число: "))
+        b = int(input("Введите второе число: "))
+        if b == 0:
+            print("На нуль делить нельзя")
+            continue
+        else:
+            print(operation(n, a, b))
+
+
+# 2. Рекурсия
+def operation(n, a, b):
+    result = None
+    if n == "+":
+        result = a + b
+    elif n == "-":
+        result = a - b
+    elif n == "*":
+        result = a * b
+    elif n == "/":
+        result = a / b
+    return result
+
+
+def recursion():
+    n = input("Введите знак операции ('0', '+', '-', '*', '/'): ")
+    if n not in ['0', '+', '-', '*', '/']:
+        print("Неверный знак операции")
+    elif n == '0':
+        print("Программа завершена")
+        return
+    else:
+        a = int(input("Введите первое число: "))
+        b = int(input("Введите второе число: "))
+        if b == 0:
+            print("На нуль делить нельзя")
+        else:
+            print(operation(n, a, b))
+    recursion()
+
+
+recursion()
