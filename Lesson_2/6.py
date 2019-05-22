@@ -5,3 +5,54 @@
 число, чем то, что загадано. Если за 10 попыток число не отгадано,
 то вывести загаданное число.
 """
+import random
+
+
+# Цикл
+num = random.randint(0, 100)
+count = 10
+
+
+while count > 0:
+
+    a = int(input("Введите целое число от 0 до 100: "))
+
+    if a == num:
+        print(f"Вы победили!\nЗагаданное число: {num}")
+        break
+    elif a > num:
+        print(f"Загаданное число меньше.\nОсталось попыток: {count - 1}")
+    else:
+        print(f"Загаданное число больше.\nОсталось попыток: {count - 1}")
+
+    count -= 1
+
+if count == 0:
+    print(f"Вы проиграли.\nЗагаданное число: {num}")
+
+
+# Рекурсия
+num = random.randint(0, 100)
+count = 10
+
+
+def func(num, count):
+
+    a = int(input("Введите целое число от 0 до 100: "))
+
+    if a == num:
+        print(f"Вы победили!\nЗагаданное число: {num}")
+        return
+    elif a > num:
+        print(f"Загаданное число меньше.\nОсталось попыток: {count - 1}")
+    else:
+        print(f"Загаданное число больше.\nОсталось попыток: {count - 1}")
+
+    count -= 1
+    if count == 0:
+        print(f"Вы проиграли.\nЗагаданное число: {num}")
+        return
+    func(num, count)
+
+
+func(num, count)
