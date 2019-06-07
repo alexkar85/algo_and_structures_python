@@ -6,3 +6,32 @@
 массива. Но если это слишком сложно, то используйте метод сортировки,
  который не рассматривался на уроках
 """
+
+import random
+
+
+m = 5
+N = 2 * m + 1
+
+# Позиция медианы и количество эл-ов справа и слева от неё.
+el_end = N // 2
+
+A = []
+for el in range(N):
+    A.append(random.randint(1, 99))
+
+
+for i in range(N):
+    count_ = 0
+    for el in A:
+        if i == A.index(el):
+            continue
+        if A[i] <= el:
+            count_ += 1
+    if count_ == el_end:
+        print(f"Медиана массива {A}: {A[i]}")
+        break
+
+# Проверка
+# A.sort()
+# print(f"Отсортированный массив: {A}")

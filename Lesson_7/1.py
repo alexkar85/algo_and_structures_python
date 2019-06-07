@@ -4,3 +4,25 @@
 исходный и отсортированный массивы. Сортировка должна быть реализована в
 виде функции. По возможности доработайте алгоритм (сделайте его умнее).
 """
+
+
+import random
+
+
+M = []
+
+for i in range(0, 10):
+        M.append(random.randint(-100, 99))
+
+print(f"Исходный массив: {M}")
+
+
+def sort(A):
+    n = len(A)
+    for j in range(0, n - 1):
+        for i in range(n - 1 - j):
+            if A[i] > A[i + 1]:
+                A[i], A[i + 1] = A[i + 1], A[i]
+    return A
+
+print(f"Отсортированный: {sort(M)}")
