@@ -3,3 +3,24 @@
 Пусть дана строка S длиной N, состоящая только из маленьких латинских букв.
 Требуется найти количество различных подстрок в этой строке.
 """
+
+
+import hashlib
+
+A = "abracadabra"
+N = len(A)
+U = []
+k = 0
+
+for i in range(N):
+    for j in range(i, N):
+        a = A[i:j+1]
+        print(a)
+        b = hashlib.sha1(a.encode('utf-8')).hexdigest()
+        print(b)
+        if b not in U: 
+            U.append(b)
+        k += 1
+
+print(f"Всего подстрок: {k - 1}")
+print(f"Уникальных подстрок: {len(U) - 1}") # Вычетаем 1, так как мы включили сюда всю строку целиком. Вот её и вычитаем
